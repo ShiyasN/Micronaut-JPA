@@ -1,6 +1,8 @@
 plugins {
     id("com.github.johnrengelman.shadow") version "7.0.0"
     id("io.micronaut.application") version "1.5.3"
+    id 'com.diffplug.spotless' version "5.13.0"
+
 }
 
 version = "0.1"
@@ -64,5 +66,14 @@ java {
     targetCompatibility = JavaVersion.toVersion("11")
 }
 
+spotless {
+    java {
+        importOrder()
+
+        removeUnusedImports()
+
+        googleJavaFormat()
+    }
+}
 
 

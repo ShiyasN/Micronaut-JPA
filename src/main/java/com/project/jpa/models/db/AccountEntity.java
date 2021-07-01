@@ -1,31 +1,30 @@
 package com.project.jpa.models.db;
 
+import java.io.Serializable;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-
 @Entity
-@Table(name="accounts")
+@Table(name = "accounts")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class AccountEntity implements Serializable {
   @Id
-  @Column(name="account_id")
+  @Column(name = "account_id")
   @NotNull
   private Long accountId;
 
-  @Column(name="account_type")
+  @Column(name = "account_type")
   private String accountType;
 
-  @Column(name="branch")
+  @Column(name = "branch")
   private String branch;
 
-  @JoinColumn(name = "customers", referencedColumnName = "customer_id")
-  @ManyToOne
+  @ManyToOne(optional = false, fetch = FetchType.EAGER)
+  @JoinColumn(name = "customer_id", referencedColumnName = "customer_id")
   private CustomerEntity customerEntity;
 }

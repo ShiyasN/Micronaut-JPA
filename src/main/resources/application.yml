@@ -8,8 +8,9 @@ datasources:
     username: ${JDBC_USER:SYSTEM}
     password: ${JDBC_PASSWORD:testing12345}
     driverClassName: ${JDBC_DRIVER:oracle.jdbc.driver.OracleDriver}
-    schema-generate: NONE
-    dialect: ORACLE
+#    schema-generate: NONE
+#    dialect: ORACLE
 
 jpa.default.properties.hibernate.hbm2ddl.auto: update
 jpa.default.properties.hibernate.show_sql: true
+jpa.default.properties.hibernate.enable_lazy_load_no_trans: true
