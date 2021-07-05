@@ -7,10 +7,11 @@ import com.project.jpa.models.db.Customer;
 import com.project.jpa.models.db.CustomerEntity;
 import com.project.jpa.repository.AccountRepository;
 import com.project.jpa.repository.CustomerRepository;
+
+import javax.inject.Inject;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import javax.inject.Inject;
 
 public class CustomerService {
 
@@ -56,7 +57,7 @@ public class CustomerService {
   }
 
   public List<Account> getAccountDetailsForACustomer(Long accountId) {
-    Optional<AccountEntity> accountEntities = accountRepository.findByAccountIdCustom(accountId);
+    Optional<AccountEntity> accountEntities = accountRepository.findByAccountId(accountId);
     return accountEntities.stream().map(Account::new).collect(Collectors.toList());
   }
 }

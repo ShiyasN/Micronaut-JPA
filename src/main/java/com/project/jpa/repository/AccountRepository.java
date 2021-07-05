@@ -2,6 +2,7 @@ package com.project.jpa.repository;
 
 import com.project.jpa.models.db.AccountEntity;
 import com.project.jpa.models.db.CustomerEntity;
+import io.micronaut.data.annotation.Join;
 import io.micronaut.data.annotation.Query;
 import io.micronaut.data.annotation.Repository;
 import io.micronaut.data.jpa.repository.JpaRepository;
@@ -11,6 +12,7 @@ import java.util.Optional;
 @Repository
 public interface AccountRepository extends JpaRepository<AccountEntity, Long> {
 
+  @Join(value="customerEntity", type=Join.Type.FETCH)
   Optional<AccountEntity> findByAccountId(Long accountId);
 
   @Query(
