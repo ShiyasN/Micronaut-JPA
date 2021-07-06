@@ -4,8 +4,9 @@ import com.project.jpa.models.db.Account;
 import com.project.jpa.models.db.Customer;
 import com.project.jpa.service.CustomerService;
 import io.micronaut.http.annotation.*;
-import java.util.List;
+
 import javax.inject.Inject;
+import java.util.List;
 
 @Controller("/customer")
 public class CustomerController {
@@ -40,5 +41,10 @@ public class CustomerController {
   @Get("/accounts/{accountId}")
   public List<Account> getAccountDetailsForACustomer(@PathVariable Long accountId) {
     return customerService.getAccountDetailsForACustomer(accountId);
+  }
+
+  @Get("/accounts/multiple/{accountId}")
+  public List<Account> getMultipleAccountDetails(@PathVariable Long accountId) {
+    return customerService.getMultipleAccountDetails(accountId);
   }
 }

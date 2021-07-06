@@ -1,16 +1,17 @@
 package com.project.jpa.models.db;
 
 import io.micronaut.core.annotation.Nullable;
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "customers")
@@ -32,14 +33,27 @@ public class CustomerEntity implements Serializable {
   @Column(name = "phone_number")
   private String phoneNo;
 
-  //    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
-  //    private List<AccountEntity> accountEntityList;
+  @Nullable
+  @Column(name = "city")
+  private String city;
+
+  @Nullable
+  @Column(name = "address")
+  private String address;
+
+  @Nullable
+  @Column(name = "email")
+  private String email;
+
 
   public static CustomerEntity buildCustomerEntityFromCustomer(Customer customer) {
     return CustomerEntity.builder()
         .customerId(customer.getCustomerId())
         .name(customer.getName())
         .phoneNo(customer.getPhoneNo())
+        .city(customer.getCity())
+        .email(customer.getEmail())
+        .address(customer.getAddress())
         .build();
   }
 }

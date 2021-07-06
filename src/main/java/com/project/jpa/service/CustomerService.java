@@ -60,4 +60,9 @@ public class CustomerService {
     Optional<AccountEntity> accountEntities = accountRepository.findByAccountId(accountId);
     return accountEntities.stream().map(Account::new).collect(Collectors.toList());
   }
+
+  public List<Account> getMultipleAccountDetails(Long accountId) {
+    List<AccountEntity> accountEntities = accountRepository.findByAccountIdInRange(accountId, accountId + 10);
+    return accountEntities.stream().map(Account::new).collect(Collectors.toList());
+  }
 }
