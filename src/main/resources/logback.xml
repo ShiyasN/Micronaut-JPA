@@ -11,7 +11,7 @@
 
 <!--    <logger name="io.micronaut.data" level="trace"/>-->
 
-    <root level="debug">
+    <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
 </configuration>

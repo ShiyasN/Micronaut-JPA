@@ -14,5 +14,4 @@ datasources:
 #    dialect: ORACLE
 
 jpa.default.properties.hibernate.hbm2ddl.auto: update
-jpa.default.properties.hibernate.show_sql: true
 jpa.default.properties.hibernate.enable_lazy_load_no_trans: true
