@@ -42,6 +42,14 @@ public class CustomerEntity implements Serializable {
   private String address;
 
   @Nullable
+  @Column(name = "address_line1")
+  private String addressLine1;
+
+  @Nullable
+  @Column(name = "address_line2")
+  private String addressLine2;
+
+  @Nullable
   @Column(name = "email")
   private String email;
 
@@ -54,6 +62,8 @@ public class CustomerEntity implements Serializable {
         .city(customer.getCity())
         .email(customer.getEmail())
         .address(customer.getAddress())
+        .addressLine1(customer.getAddressLine1())
+        .addressLine2(customer.getAddressLine2())
         .build();
   }
 }
